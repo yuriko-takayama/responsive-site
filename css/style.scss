@@ -1,0 +1,167 @@
+@import "compass";
+@import url(https://fonts.googleapis.com/css?family=Josefin+Sans);
+
+// font-family
+$baseFontFamily :"游ゴシック", YuGothic, "メイリオ",Verdana, "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+
+// colors
+$baseColor: #FFF2CC;
+$subColor: #CCB2FF;
+$keyColor: #E52E2E;
+$fontColor: #734040;
+
+/* Base
+------------------------------------------------------------*/
+html{ font-size: 62.5%; }
+
+body{
+    color: $fontColor;
+    font-size: 1.4rem;
+    font-family: $baseFontFamily;
+    line-height: 1.6;
+    letter-spacing: 0.1em;
+    background-color: $baseColor;
+}
+
+a{
+  @include link-colors($keyColor, darken($keyColor, 10%), lighten($keyColor, 10%), darken($keyColor, 10%));
+  text-decoration: none;
+}
+
+/* Align
+------------------------------------------------------------*/
+.text-center {
+  text-align: center;
+}
+
+/* Layout
+------------------------------------------------------------*/
+.block-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Font
+------------------------------------------------------------*/
+.Josefin-Sans {
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+/* Header
+------------------------------------------------------------*/
+header{
+    .image-box {
+      background-image: url('../images/img_header.jpg');
+      width: 100%;
+      height: 250px;
+      background-size: cover;
+      background-position: center;
+    }
+}
+
+// desktop
+@media (min-width: 769px){
+  // Header
+  header{
+    .image-box {
+      height: 500px;
+    }
+  }
+} 
+
+/* Main
+------------------------------------------------------------*/
+main{
+  h1{
+    font-size: 4rem;
+    color: $keyColor;
+    margin: 50px 0;
+  }
+}
+
+section{
+  .container{
+    width: 90%;
+    @extend .block-center;
+  }
+  h2{
+    font-size:  2rem;
+    @extend .Josefin-Sans;
+  }
+  h3{
+    font-site: 1.5rem;
+    @extend .Josefin-Sans;
+  }
+}
+
+// introduction
+#introduction{
+  margin-bottom: 50px;
+  .container{
+    @include display-flex;
+    justify-content: space-between;
+    @include flex-direction(column);
+  }
+  .introduction-box{
+    @include flex(1);
+    margin: 10px 0;
+    background-color: $keyColor;
+  }
+  h2{
+    background-color: $subColor;
+    padding: 10px;
+  }
+  p{
+    color: #fff;
+    padding: 10px;
+  }
+}
+
+// desktop
+@media(min-width: 769px){
+  // introduction
+  #introduction{
+    .container{
+      @include flex-direction(row);
+      justify-content: space-between;
+    }
+    .introduction-box{
+      margin: 0 10px;
+    }
+  }
+}
+
+// contact
+#contact{
+  background-color: $subColor;
+  @extend .text-center;
+  padding: 50px 0;
+  h3{
+    margin-bottom: 20px;
+  }
+
+  a{
+    display: block;
+    @extend .block-center;
+    width: 20%;
+    height: 20%;
+    padding: 10px;
+    background-color: $keyColor;
+    color: #fff;
+    font-size: 3rem;
+    @include border-radius(5px);
+  }
+}
+
+// desktop
+@media (min-width:769px){
+  // contact
+  #contact{
+    a{
+      &:hover{
+        background-color: darken($keyColor, 10%);
+      }
+    }
+  }
+}
